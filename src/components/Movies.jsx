@@ -12,8 +12,8 @@ class Movies extends React.Component {
   render() {
     return (
       <ul className="movies">
-        {this.props.movies.results.map((movie, key) => {
-          return <ul><MovieTile movie={movie} key={movie.id}/></ul>
+        {this.props.movies.results.map((movie) => {
+          return <ul><MovieTile movie={movie} key={`movieID${movie.id}`}/></ul>
         })}
       </ul>
     )

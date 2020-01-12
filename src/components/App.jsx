@@ -10,18 +10,35 @@ class App extends React.Component {
     super(props);
     this.state = {
       movies: exampleMovies.movieData,
+      genreId: 28,
       favorites: [{ deway: 'favorites' }],
       showFaves: false,
     };
 
-    // you might have to do something important here!
+    this.handleSelect = this.handleSelect.bind(this);
 
   }
 
-  //comp did mount
-    //make request
-    //update stte
-    //pass to search
+
+  //method to fetch all movies with particular genre
+    //use search API endpoint but must filter by genre ID
+  // componentDidMount() {
+  //   fetch(//url with interpolated g)
+  //     .then((data) => {
+  //       return data.json();
+  //     })
+  //     .then(results => console.log(results))
+  //     .catch(err => err);
+  // }
+
+
+  //get value from dropdown select
+  //need to find a way to access the id associated with the selection, not the text
+  handleSelect(event) {
+    console.log(event.target.value)
+    this.setState({ selected: event.target.value })
+  }
+
 
   swapFavorites() {
     // don't touch
@@ -30,6 +47,7 @@ class App extends React.Component {
     });
   }
 
+  //render app
   render() {
     return (
       <div className="app">
@@ -38,6 +56,7 @@ class App extends React.Component {
           <Search
             swapFavorites={this.swapFavorites}
             showFaves={this.state.showFaves}
+            handleSelect={this.handleSelect}
           />
           <Movies
             movies={this.state.showFaves ? this.state.favorites : this.state.movies}

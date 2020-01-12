@@ -2,7 +2,7 @@ import React from 'react';
 import Movies from './Movies.jsx';
 import Search from './Search.jsx';
 import exampleMovies from '../exampleData/exampleMovies';
-
+import config from '../../config.js';
 import '../styles/App.scss';
 
 class App extends React.Component {
@@ -15,7 +15,13 @@ class App extends React.Component {
     };
 
     // you might have to do something important here!
+
   }
+
+  //comp did mount
+    //make request
+    //update stte
+    //pass to search
 
   swapFavorites() {
     // don't touch

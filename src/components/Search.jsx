@@ -5,22 +5,22 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      genres: sampleGenres,
+      genres: [],
+      selected: false;
     };
   }
+
 
   componentDidMount() {
     fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${config.API_KEY}&language=en-US`)
       .then((data) => {
         return data.json();
       })
-      .then((jsonData) => {
-        console.log(jsonData);
+      .then((results) => {
+        this.setState({ genres: results.genres });
       })
       .catch(err => err);
   }
-
-
 
   render() {
     console.log(this.props)
@@ -33,8 +33,8 @@ class Search extends React.Component {
         {/* How can you tell which option has been selected from here? */}
 
         <select>
-          {this.state.genres.map((genre, i) => {
-            return <option value={genre} index={i}>{genre}</option>
+          {this.state.genres.map((genre) => {
+            return <option value={genre.name} key={`option${genre.id}`}>{genre.name}</option>
           })}
         </select>
         <br /><br />
@@ -45,7 +45,5 @@ class Search extends React.Component {
     );
   }
 }
-
-const sampleGenres = [ 'something', 'another thing', 'different thing', 'thing'];
 
 export default Search;

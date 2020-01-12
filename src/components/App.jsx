@@ -1,6 +1,7 @@
 import React from 'react';
 import Movies from './Movies.jsx';
 import Search from './Search.jsx';
+import exampleMovies from '../exampleData/exampleMovies';
 
 import '../styles/App.scss';
 
@@ -8,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: [{ deway: 'movies' }],
+      movies: exampleMovies.movieData,
       favorites: [{ deway: 'favorites' }],
       showFaves: false,
     };
@@ -16,27 +17,14 @@ class App extends React.Component {
     // you might have to do something important here!
   }
 
-  getMovies() {
-    // make an axios request to your server on the GET SEARCH endpoint
-  }
-
-  saveMovie() {
-    // same as above but do something diff
-  }
-
-  deleteMovie() {
-    // same as above but do something diff
-  }
-
   swapFavorites() {
-    // dont touch
+    // don't touch
     this.setState({
       showFaves: !this.state.showFaves,
     });
   }
 
   render() {
-    console.log(process.env.API_KEY);
     return (
       <div className="app">
         <header className="navbar"><h1>Bad Movies</h1></header>

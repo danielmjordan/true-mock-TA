@@ -4,6 +4,10 @@ A student-made teaching tool designed to cover the fundamentals of fullstack
 
 Learn the fundamentals of application structure and database integration by making a web app that renders the most horrible movies as listed on 'themoviedb.org' based on certain search criteria, namely genre. The user should be able to save a movie to their 'favorites' list and delete movies from this list.
 
+### API KEY
+
+**Do NOT** push your API key to GitHub, instead create a config.js file in the root and export it. Import as necessary. 
+
 ### Basic functionality: 
 
 [ ] User should be able to search for the worst movies from any of the official genres listed on 'themoviedb.org'
@@ -12,11 +16,11 @@ Learn the fundamentals of application structure and database integration by maki
 
 [ ] A search should find and display a limited list of movies sorted by rating in ascending order, showing the movies with the worst ratings first (figure out how to modify the API endpoint to do so)
 
-[ ] User should be able to click on any movie in order to save it to their favorites list (mySQL database, you must make your own Schema)
+[ ] User should be able to click on any movie in order to save it to their favorites list
 
 [ ] If a user has navigated to their favorites page, clicking on a movie should delete it from their favorites (unlike on the main page, where clicking on a movie adds it to their favorites list)
 
-[ ] Store your data in MySQL db (or MongoDB if/when you feel comfortable)
+[ ] Store your user data in a MongoDB (w/ Mongoose)
 
 ### The API for the application, where you will query for worst movies and all official genres:
 

@@ -8,10 +8,6 @@ class Search extends React.Component {
     };
   }
 
-  getGenres() {
-    // make a fetch request to get the list of genres from your endpoint GET GENRES
-  }
-
   render() {
     return (
       <div className="search">

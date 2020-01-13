@@ -22,14 +22,19 @@ class App extends React.Component {
 
   //method to fetch all movies with particular genre
     //use search API endpoint but must filter by genre ID
-  // componentDidMount() {
-  //   fetch(//url with interpolated g)
-  //     .then((data) => {
-  //       return data.json();
-  //     })
-  //     .then(results => console.log(results))
-  //     .catch(err => err);
-  // }
+  componentDidMount() {
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${config.API_KEY}&query=Jack+Reacher`)
+      .then((data) => {
+        return data.json();
+      })
+      .then(results => {
+        results.results.forEach(movie => {
+          return movie.filter((mov) => mov.genre_id.includes(this.state.genre_id));
+        })
+      })
+      .then(filteredMovies => this.setState({ movies: filteredMovies }))
+      .catch(err => err);
+  }
 
 
   //get value from dropdown select
